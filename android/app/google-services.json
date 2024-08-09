@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "446705461240",
+    "project_id": "fidovn-47b7e",
+    "storage_bucket": "fidovn-47b7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446705461240:android:78a8984053c7c7a289180d",
+        "android_client_info": {
+          "package_name": "com.fidovn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446705461240-e5e1senkq9unghj7cffbnegj1fp5epal.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fidovn",
+            "certificate_hash": "15f81b54da6fd50284a5aecc371d7994d9865dd0"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuMgP-V8dtWeT2GIUOaRzUnzvTgf_aYso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446705461240-e60fufjo5cvhncootmv5curcdv31eu9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
