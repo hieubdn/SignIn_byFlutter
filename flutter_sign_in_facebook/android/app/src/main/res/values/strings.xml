@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">com.fido</string>
+  <string name="facebook_app_id">399614392711678</string>
+  <string name="facebook_client_token">9ce4a7d6090738be199f9495f90884ac</string>
+</resources>
