@@ -1,28 +1,3 @@
-// ****Phiên bản mặc định***
-
-// allprojects {
-//     repositories {
-//         google()
-//         mavenCentral()
-//     }
-// }
-
-// rootProject.buildDir = "../build"
-// subprojects {
-//     project.buildDir = "${rootProject.buildDir}/${project.name}"
-// }
-// subprojects {
-//     project.evaluationDependsOn(":app")
-// }
-
-// tasks.register("clean", Delete) {
-//     delete rootProject.buildDir
-// }
-
-
-
-
-//*****Phiên bản thứ 2*****
 buildscript {
     repositories {
         google()

@@ -23,7 +23,6 @@ Future<User?> signInWithGoogle() async {
     final UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
     final User? user = userCredential.user;
 
-    // Trả về đối tượng User để sử dụng ở các phần khác của ứng dụng
     return user;
   } catch (e) {
     // Xử lý lỗi đăng nhập
