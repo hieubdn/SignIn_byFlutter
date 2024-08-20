@@ -28,86 +28,6 @@ class FacebookLoginButton extends StatefulWidget {
 }
 
 class _FacebookLoginButtonState extends State<FacebookLoginButton> {
-  String? _userId;
-  String? _userName;
-  String? _userAvatar;
-  String? _accessToken;
-
-  Future<void> _loginWithFacebook() async {
-    final LoginResult result = await FacebookAuth.instance.login();
-
-    if (result.status == LoginStatus.success) {
-      final AccessToken accessToken = result.accessToken!;
-      final userData = await FacebookAuth.instance
-          .getUserData(fields: "id,name,picture.width(200)");
-
-      setState(() {
-        _userId = userData['id'];
-        _userName = userData['name'];
-        _userAvatar = userData['picture']['data']['url'];
-        // _accessToken = accessToken.toJson()['token'];
-        _accessToken = accessToken.token;
-      });
-    } else {
-      print(result.status);
-      print(result.message);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (_userAvatar != null) Image.network(_userAvatar!),
-        if (_userName != null) Text('Name: $_userName'),
-        if (_userId != null) Text('User ID: $_userId'),
-        if (_accessToken != null) Text('Access Token: $_accessToken'),
-        ElevatedButton(
-          onPressed: _loginWithFacebook,
-          child: Text('Login with Facebook'),
-        ),
-      ],
-    );
-  }
-}
-
-extension on AccessToken {
-  String? get token => null;
-}
-
-
-
-import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Facebook Login Demo'),
-        ),
-        body: Center(
-          child: FacebookLoginButton(),
-        ),
-      ),
-    );
-  }
-}
-
-class FacebookLoginButton extends StatefulWidget {
-  @override
-  _FacebookLoginButtonState createState() => _FacebookLoginButtonState();
-}
-
-class _FacebookLoginButtonState extends State<FacebookLoginButton> {
   Map<String, dynamic>? _userData;
   String? _accessToken;
 
@@ -123,7 +43,7 @@ class _FacebookLoginButtonState extends State<FacebookLoginButton> {
       final userData = await FacebookAuth.instance.getUserData();
       setState(() {
         _userData = userData;
-        _accessToken = accessToken.token;
+        _accessToken = accessToken.tokenString;
       });
     }
   }
@@ -134,11 +54,11 @@ class _FacebookLoginButtonState extends State<FacebookLoginButton> {
     );
 
     if (result.status == LoginStatus.success) {
-      final accessToken = result.accessToken; // Access the access token directly
+      final accessToken = result.accessToken;
       final userData = await FacebookAuth.instance.getUserData();
       setState(() {
         _userData = userData;
-        _accessToken = accessToken!.token; // Use the token property directly
+        _accessToken = accessToken!.tokenString;
       });
       print('Logged in with access token: ${_accessToken}');
     } else {
